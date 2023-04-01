@@ -1,0 +1,56 @@
+{% extends 'abase.html' %}
+{% block content %}
+	<div class="single team">
+		<div class="container">		
+		
+			<div class="clearfix"> </div> 
+			<div class="agileits_three_comments">
+				<h3>Feedback</h3>
+				{% for i in data %}
+				{% if i.3 == 'admin' %}
+				<div class="agileits_three_comment_grid">
+					<div class="agileits_tom"> 
+						<i class="fa fa-user"></i>
+					</div>
+					<div class="agileits_tom_right">
+						<div class="Hardy">
+							<h4>{{i.2}}</h4>
+							<p>{{i.4}}</p>
+						</div>
+						
+						<div class="clearfix"> </div> 
+						<p class="lorem">{{i.1}}</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div> 
+				{% else %}
+				<div class="agileits_three_comment_grid agileits_three_comment_grid1">
+					<div class="agileits_tom"> 
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="agileits_tom_right">
+						<div class="Hardy">
+							<h4>Admin</h4>
+							<p></p>
+						</div>
+						
+						<div class="clearfix"> </div>
+						<p class="lorem">{{i.1}}</p>
+					</div> 
+					<div class="clearfix"> </div>
+				</div>	
+				{% endif %}
+				{% endfor %}			
+			</div>
+			<div class="w3_leave_comment">
+				
+				<form action="#" method="post">
+					{% csrf_token %}				
+					
+					<textarea cols="200" placeholder="Message" name="feedback" required=""></textarea>
+					<input type="submit" value="SUBMIT">
+				</form>
+			</div>
+		</div>
+	</div>
+	{% endblock %}

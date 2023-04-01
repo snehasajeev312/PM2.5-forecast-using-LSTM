@@ -1,0 +1,31 @@
+{% extends 'abase.html' %}
+{% block content %}
+<br/>
+<div>   
+    <div >        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Feedback</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.2}}</td>
+                    <td>{{i.1}}</td>
+                    <td>{{i.4}}</td>
+                    <td><a href="/rfeed/?id={{i.2}}">click</a></td>
+                </tr>
+                {% endfor %}
+              
+            </tbody>
+        </table>                    
+    </div>
+    
+    <div class="clearfix"> </div>
+</div>
+{% endblock %}
+

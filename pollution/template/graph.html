@@ -1,0 +1,23 @@
+
+
+{% extends 'ubase.html' %}  
+
+        
+
+
+{% block content %}
+{% load static %}
+
+
+{% if msg %}
+<img src="{% static 'media/pollutions.png'%}" alt="pollutions"/>
+<img src="{% static 'media/test vs train.png'%}" alt="pollutions"/>
+{% else %}
+<center>
+    <h1>
+        No DATA FOUND
+    </h1>
+</center>
+{% endif %}
+
+{% endblock %}

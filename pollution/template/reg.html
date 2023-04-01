@@ -1,0 +1,20 @@
+{% extends 'gbase.html' %}
+{% block content %}
+			
+	<!-- contact -->
+	<div class="contact agileits">
+		<div class="container"> 
+			<h3 class="agileits-title">REGISTRAION</h3>
+			<div class="contact-agileinfo">
+				<div class="col-md-7 contact-form wthree">
+					<form action="#" method="post">
+						{% csrf_token %}
+						<input type="text" pattern="[a-zA-Z]{2,}" title="text" name="name" placeholder="Name" required="">
+						<input class="email" type="email" name="email" placeholder="Email" required="">
+						<input type="text" name="uname" placeholder="Username" required="">
+						<input class="email" type="password" name="password" placeholder="password" required="">
+						<input type="submit" value="SUBMIT">
+					</form>
+				</div>
+				
+	{% endblock %}

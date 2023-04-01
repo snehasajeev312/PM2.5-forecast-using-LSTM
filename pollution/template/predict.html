@@ -1,0 +1,68 @@
+{% extends 'ubase.html' %}  
+
+        
+
+
+{% block content %}
+{% load static %}
+
+<br/>
+<center>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" style="
+    outline: none;
+    color: #fff;
+    padding: 0.6em 4em;
+    font-size: 1em;
+    margin: 1em 0 0 0;
+    -webkit-appearance: none;
+    background: #17b9ea;
+    border: 2px solid #17b9ea;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    transition: 0.5s all;" value="Predict">
+</form>
+</center>
+
+<div class="grid_3 grid_5 ">
+    <h3 class="w3ls-hdg">Prediction </h3>
+    <div class="col-md-6">
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in prediction %}
+               
+                <tr>
+                    <td><code>{{forloop.counter}}</code></td>
+                    <td><span class="badge badge-warning">{{i}}</span></td>
+                </tr>
+                {% endfor %}
+               
+            </tbody>
+        </table>                    
+    </div>
+    
+    <div class="col-md-6">
+        <p>Error analysis <code>For </code> Predicted values</p>
+        <div class="list-group list-group-alternate"> 
+            <a href="#" class="list-group-item"><span class="badge">{{errors.rmse}}</span> <i class="ti ti-email"></i> RMEA </a> 
+            <a href="#" class="list-group-item"><span class="badge badge-primary">{{errors.mae}}</span> <i class="ti ti-eye"></i> MAE </a> 
+            <a href="#" class="list-group-item"><span class="badge">{{errors.r2}}</span> <i class="ti ti-headphone-alt"></i> R2 </a> 
+            <!-- <a href="#" class="list-group-item"><span class="badge">{{errors.mape}}</span> <i class="ti ti-comments"></i> MAPE </a>  -->
+            <a href="/graph" class="list-group-item"><span class="badge">GRAPH</span> <i class="ti ti-comments"></i> GRAPH </a> 
+           <!-- <a href="/error" class="list-group-item"><span class="badge">Result</span> <i class="ti ti-comments"></i> Result </a> -->
+            <!-- <a href="#" class="list-group-item"><span class="badge badge-warning">14</span> <i class="ti ti-bookmark"></i> Bookmarks </a>  -->
+            <!-- <a href="#" class="list-group-item"><span class="badge badge-danger">30</span> <i class="ti ti-bell"></i> Notifications </a>  -->
+        </div>
+    </div> 
+    <div class="clearfix"> </div>
+</div>
+
+{% endblock %}
